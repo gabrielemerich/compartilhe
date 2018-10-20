@@ -19,7 +19,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.idea.project.dto.UsuarioDTO;
-import br.idea.project.entity.Usuario;
 
 public class JWTFilter extends UsernamePasswordAuthenticationFilter {
 
