@@ -33,6 +33,7 @@ public class PostServiceImpl implements IPostContract {
 	@Transactional
 	@Override
 	public Post salvar(Post post) {
+		post.setId(0);
 		UsuarioSecurity us = UsuarioServiceImpl.UsuarioLogado();
 		if(us == null) {
 			throw new AuthException("Acesso Negado");
