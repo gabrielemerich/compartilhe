@@ -68,7 +68,7 @@ public class Post implements Serializable {
     private int likes;
     @JsonIgnore
     
-    @OneToMany(mappedBy="post_like")
+    @OneToMany(mappedBy="post_like", cascade=CascadeType.REMOVE)
     private List<Like> like;
    
     @OneToMany(mappedBy="post_feed", cascade=CascadeType.REMOVE)
