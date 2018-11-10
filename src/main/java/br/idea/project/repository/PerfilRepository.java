@@ -3,12 +3,16 @@ package br.idea.project.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import br.idea.project.entity.Perfil;
 
 public interface PerfilRepository extends JpaRepository<Perfil, Integer> {
 
+	@Modifying
+	@Query(value="INSERT INTO perfil (usuario_id) values (?1)", nativeQuery=true)
+	void insertProfile(Integer id);
 	
 	@Query(value="SELECT * FROM perfil WHERE usuario_id = ?1", nativeQuery=true)
 	List<Perfil>findUsuarioPerfil(Integer id);

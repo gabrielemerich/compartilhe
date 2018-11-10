@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import br.idea.project.contract.IUsuarioContract;
 import br.idea.project.dto.UsuarioDTO;
 import br.idea.project.entity.Usuario;
+import br.idea.project.repository.PerfilRepository;
 import br.idea.project.repository.UsuarioRepository;
 import br.idea.project.security.UsuarioSecurity;
 import br.idea.project.service.exception.AuthException;
@@ -24,6 +25,9 @@ public class UsuarioServiceImpl implements IUsuarioContract {
 
 	@Autowired
 	private UsuarioRepository user_repo;
+	
+	@Autowired
+	private PerfilRepository perfil_repo;
 
 	@Autowired
 	private BCryptPasswordEncoder pass_encoder;
@@ -41,7 +45,9 @@ public class UsuarioServiceImpl implements IUsuarioContract {
 			throw new NotAuth("Já existe um cadastro com este endereço de email.");
 		
 		user.setSenha(pass_encoder.encode(user.getSenha()));
-		return this.user_repo.save(user);
+		Usuario u = this.user_repo.save(user);
+		perfil_repo.insertProfile(u.getId());
+		return u;
 
 	}
 
