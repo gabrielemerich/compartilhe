@@ -16,6 +16,7 @@ import br.idea.project.entity.Usuario;
 import br.idea.project.repository.UsuarioRepository;
 import br.idea.project.security.UsuarioSecurity;
 import br.idea.project.service.exception.AuthException;
+import br.idea.project.service.exception.NotAuth;
 import br.idea.project.service.exception.ObjectNotFound;
 
 @Service
@@ -35,6 +36,10 @@ public class UsuarioServiceImpl implements IUsuarioContract {
 	@Transactional
 	public Usuario salvar(Usuario user) {
 
+		Usuario user_email = user_repo.findByEmail(user.getEmail());
+		if(user_email != null) 
+			throw new NotAuth("Já existe um cadastro com este endereço de email.");
+		
 		user.setSenha(pass_encoder.encode(user.getSenha()));
 		return this.user_repo.save(user);
 

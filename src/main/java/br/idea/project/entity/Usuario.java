@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.idea.project.validators.UsuarioInsert;
 @Entity
 public class Usuario implements Serializable {
   

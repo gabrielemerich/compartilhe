@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -53,6 +54,25 @@ public class Post implements Serializable {
     private String foto;
   
     private Integer quant;
+
+    //Dados Bancários
+    
+    private Long agencia;
+    
+    private Long conta;
+    
+    private String banco;
+    
+    private String titular;
+    
+    private String contato;
+    
+    @Column(precision=10, scale=2)
+    private Double meta_arrecadacao;
+    
+    @Column(precision=10, scale=2)
+    private Double total_arrecadacao;
+    
 
 	@ManyToOne
     private Usuario post_usuario;
@@ -255,6 +275,62 @@ public class Post implements Serializable {
 
 	public void setEtapas(EtapasProjeto etapas) {
 		this.etapas = etapas;
+	}
+	
+	public Long getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(Long agencia) {
+		this.agencia = agencia;
+	}
+
+	public Long getConta() {
+		return conta;
+	}
+
+	public void setConta(Long conta) {
+		this.conta = conta;
+	}
+
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getTitular() {
+		return titular;
+	}
+
+	public void setTitular(String titular) {
+		this.titular = titular;
+	}
+
+	public String getContato() {
+		return contato;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+
+	public Double getMeta_arrecadacao() {
+		return meta_arrecadacao;
+	}
+
+	public void setMeta_arrecadacao(Double meta_arrecadacao) {
+		this.meta_arrecadacao = meta_arrecadacao;
+	}
+
+	public Double getTotal_arrecadacao() {
+		return total_arrecadacao;
+	}
+
+	public void setTotal_arrecadacao(Double total_arrecadacao) {
+		this.total_arrecadacao = total_arrecadacao;
 	}
 	
     

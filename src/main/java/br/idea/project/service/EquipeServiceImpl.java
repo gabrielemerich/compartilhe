@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.idea.project.contract.IEquipeContract;
 import br.idea.project.entity.Equipe;
 import br.idea.project.repository.EquipeRepository;
+import br.idea.project.repository.TaskBoardRepository;
 import br.idea.project.service.exception.ObjectNotFound;
 
 @Service
@@ -16,6 +17,9 @@ public class EquipeServiceImpl implements IEquipeContract {
 	
 	@Autowired
 	private EquipeRepository equipe_repo;
+	
+	@Autowired
+	private TaskBoardRepository task_repo;
 	
 	public EquipeServiceImpl() {
 		
@@ -28,7 +32,8 @@ public class EquipeServiceImpl implements IEquipeContract {
 
 	@Override
 	public void deletar(Integer equipe_id) {
-		equipe_repo.deleteById(equipe_id);;
+		equipe_repo.deleteById(equipe_id);
+		task_repo.deleteTaskBoardByEquipeId(equipe_id);
 		
 	}
 

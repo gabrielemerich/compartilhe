@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Optional;
 
 import br.idea.project.entity.Usuario;
+import br.idea.project.validators.UsuarioInsert;
 
 
 public class UsuarioDTO implements Serializable{
