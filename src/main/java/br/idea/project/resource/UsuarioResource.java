@@ -38,6 +38,11 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@RequestMapping(value="distinct/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Usuario>> getUserDistinct(@PathVariable Integer id){
+		List<Usuario> obj = user_service.listDistinct(id);
+		return ResponseEntity.ok().body(obj);
+	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Usuario>> findAll() {

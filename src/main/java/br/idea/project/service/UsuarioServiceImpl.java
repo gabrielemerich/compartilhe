@@ -72,6 +72,10 @@ public class UsuarioServiceImpl implements IUsuarioContract {
 		return this.user_repo.findAll();
 	}
 
+	public List<Usuario> listDistinct(Integer id){
+		return this.user_repo.listUserDistinct(id);
+	}
+	
 	public UsuarioDTO getUserLogado() {
 		UsuarioSecurity usLogado = UsuarioLogado();
 		if (usLogado == null)

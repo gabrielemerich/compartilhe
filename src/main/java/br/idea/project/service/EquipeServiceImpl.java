@@ -47,6 +47,10 @@ public class EquipeServiceImpl implements IEquipeContract {
 		return equipe_repo.findAll();
 	}
 
+	public List<Equipe> listarEquipeUser(Integer id){
+		return this.equipe_repo.getUsersEquipes(id);
+	}
+	
 	@Override
 	public Equipe buscarId(Integer equipe_id) {
 		Optional<Equipe> equipe = this.equipe_repo.findById(equipe_id);

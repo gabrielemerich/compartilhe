@@ -34,22 +34,22 @@ public class SecurityParameters extends WebSecurityConfigurerAdapter {
 
 	private static final String[] PUBLIC_MATCHERS_GET = {
 			"/usuarios/**",
-			"/**"
+			//"/**"
 	};
 
 	private static final String[] PUBLIC_MATCHERS_POST = {
-			//"/usuarios/**"
-			"/**"
+			"/usuarios/**"
+			//"/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_DELETE = {
-			//"/usuarios/**"
-			"/**"
+			"/usuarios/**"
+			//"/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_PUT = {
-			//"/usuarios/**"
-			"/**"
+			"/usuarios/**"
+			//"/**"
 	};
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

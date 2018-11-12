@@ -76,8 +76,9 @@ public class Post implements Serializable {
 
 	@ManyToOne
     private Usuario post_usuario;
+	
     @JsonIgnore
-    @OneToMany(mappedBy="post")
+    @OneToMany(mappedBy="post", cascade=CascadeType.REMOVE)
     @OrderBy("id")
     private List<Comentario> comentario;
     private int likes;

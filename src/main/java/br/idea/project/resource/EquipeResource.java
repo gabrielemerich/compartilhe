@@ -32,6 +32,12 @@ public class EquipeResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@RequestMapping(value = "user/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Equipe>> findEquipeUser(@PathVariable Integer id) {
+		List<Equipe> obj = service.listarEquipeUser(id);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Equipe>> findAll() {
